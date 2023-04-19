@@ -4,7 +4,9 @@ function App(): JSX.Element {
     <div className="app">
       <section className="side-bar">
         <button>+ New Chat</button>
-        <ul className="history"></ul>
+        <ul className="history">
+          <li>Lorem</li>
+        </ul>
         <nav>
           <p>Created by Scott Milliorn</p>
         </nav>
