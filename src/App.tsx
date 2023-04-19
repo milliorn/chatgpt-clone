@@ -21,10 +21,8 @@ function App(): JSX.Element {
           </div>
         </div>
         <p className="info">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit nobis
-          ipsa impedit nulla voluptatum dolorem, voluptatem molestias repellat
-          ea. Nobis distinctio consequuntur ab perspiciatis quod fuga minima
-          natus ea rem.
+          ChatGPT-Clone may produce inaccurate information about people, places,
+          or facts.
         </p>
       </section>
     </div>
