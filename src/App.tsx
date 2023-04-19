@@ -3,10 +3,11 @@ function App(): JSX.Element {
   async function getMessage(
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): Promise<void> {
+    // Define the request options
     const options = {
       method: "POST",
       body: JSON.stringify({
-        message: "Hello!",
+        message: "How are you?",
       }),
       headers: {
         "Content-Type": "application/json",
@@ -14,13 +15,16 @@ function App(): JSX.Element {
     };
 
     try {
+      // Send the request to the server and wait for the response
       const response = await fetch(
         "http://localhost:8000/completions",
         options
       );
+      // Parse the response data as JSON
       const data = await response.json();
       console.log(data);
     } catch (error) {
+      // Log any errors that occur during the request
       console.error(error);
     }
   }
