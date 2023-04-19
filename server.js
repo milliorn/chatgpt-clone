@@ -1,15 +1,15 @@
 const cors = require("cors");
-const express = require("express");
 const dotenv = require("dotenv");
+const express = require("express");
 
 dotenv.config();
 
-const app = express();
-const PORT = 8000;
 const API_KEY = process.env.CHAT_GPT_API_KEY;
+const PORT = 8000;
+const app = express();
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 app.post("./completions", async (req, res) => {
   const options = {
