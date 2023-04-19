@@ -26,9 +26,9 @@ input {
   line-height: 1.75rem; /* 28px */
   padding: 0.75rem 1rem;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, /5%) 0 54px 55px, rgba(0, 0, 0, /5%) 0 -12px 30px,
-    rgba(0, 0, 0, /5%) 0 4px 6px, rgba(0, 0, 0, /5%) 0 12px 3px,
-    rgba(0, 0, 0, /5%) 0 -3px 5px;
+  box-shadow: rgba(0 0 0 / 5%) 0 54px 55px, rgba(0 0 0 / 5%) 0 -12px 30px,
+    rgba(0 0 0 / 5%) 0 4px 6px, rgba(0 0 0 / 5%) 0 12px 3px,
+    rgba(0 0 0 / 5%) 0 -3px 5px;
 }
 
 input:focus {
