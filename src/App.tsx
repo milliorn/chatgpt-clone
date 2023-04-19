@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
 // main app
 function App(): JSX.Element {
+  const [message, setMessage] = useState(null);
+
   async function getMessage(
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): Promise<void> {
@@ -23,6 +26,7 @@ function App(): JSX.Element {
       // Parse the response data as JSON
       const data = await response.json();
       console.log(data);
+      setMessage(data.choices[0].message);
     } catch (error) {
       // Log any errors that occur during the request
       console.error(error);
