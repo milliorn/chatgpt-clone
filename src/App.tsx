@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 // main app
 function App(): JSX.Element {
+  const [value, setValue] = useState<string | null>(null);
   const [message, setMessage] = useState(null);
 
   async function getMessage(
@@ -10,7 +11,7 @@ function App(): JSX.Element {
     const options = {
       method: "POST",
       body: JSON.stringify({
-        message: "How are you?",
+        message: value,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -33,6 +34,8 @@ function App(): JSX.Element {
     }
   }
 
+  console.log(value);
+
   return (
     <div className="app">
       <section className="side-bar">
@@ -49,7 +52,10 @@ function App(): JSX.Element {
         <ul className="feed"></ul>
         <div className="bottom-section">
           <div className="input-container">
-            <input type="text" />
+            <input
+              value={value || ""}
+              onChange={(e) => setValue(e.target.value)}
+            />
             <div id="submit" onClick={getMessage}>
               +{" "}
             </div>
