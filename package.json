@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "git-update": "git fetch && git pull",
+    "full-stack": "concurrently \"npm run backend\" \"npm run frontend:dev\"",
     "backend": "nodemon server.js",
-    "dev": "vite",
+    "frontend:dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
