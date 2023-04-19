@@ -1,15 +1,19 @@
 {
-  "name": "vite-starter",
+  "name": "chatgpt-clone",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "git-update": "git fetch && git pull",
+    "backend": "nodemon server.js",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
