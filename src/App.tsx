@@ -1,5 +1,30 @@
 // main app
 function App(): JSX.Element {
+  async function getMessage(
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): Promise<void> {
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        message: "Hello!",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await fetch(
+        "http://localhost:8000/completions",
+        options
+      );
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="app">
       <section className="side-bar">
@@ -17,7 +42,9 @@ function App(): JSX.Element {
         <div className="bottom-section">
           <div className="input-container">
             <input type="text" />
-            <div id="submit"> {">"}</div>
+            <div id="submit" onClick={getMessage}>
+              +{" "}
+            </div>
           </div>
         </div>
         <p className="info">
