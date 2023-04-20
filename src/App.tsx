@@ -16,6 +16,14 @@ function App(): JSX.Element {
   const [previousChats, setPreviousChats] = useState<Chat[]>([]);
   const [value, setValue] = useState<string>("");
 
+  function createNewChat(
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void {
+    setMessage({ role: "", content: "" });
+    setValue("");
+    setCurrentTitle("");
+  }
+
   async function getMessage(
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): Promise<void> {
@@ -73,10 +81,16 @@ function App(): JSX.Element {
     }
   }, [message, currentTitle]);
 
+  console.log(previousChats);
+
+  const currentChat = previousChats.filter(
+    (previousChat) => previousChat.title === currentTitle
+  );
+
   return (
     <div className="app">
       <section className="side-bar">
-        <button>+ New Chat</button>
+        <button onClick={createNewChat}>+ New Chat</button>
         <ul className="history">
           <li>Lorem</li>
         </ul>
@@ -86,9 +100,7 @@ function App(): JSX.Element {
       </section>
       <section className="main">
         {!currentTitle && <h1>ChatGPT-Clone</h1>}
-        <ul className="feed">
-          {}
-        </ul>
+        <ul className="feed">{}</ul>
         <div className="bottom-section">
           <div className="input-container">
             <input value={value} onChange={(e) => setValue(e.target.value)} />
