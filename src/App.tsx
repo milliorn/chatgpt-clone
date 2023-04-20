@@ -1,9 +1,10 @@
 import { useState, useEffect, SetStateAction } from "react";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { SideBar } from "./components/SideBar";
+import { PageFeed } from "./components/PageFeed";
 
 // Define a type for a chat object
-interface Chat {
+export interface Chat {
   content: string;
   role: string;
   title: string;
@@ -122,14 +123,7 @@ function App(): JSX.Element {
 
       <section className="main">
         {!currentTitle && <h1>ChatGPT-Clone</h1>}
-        <ul className="feed">
-          {currentChat?.map((chatMessage, index) => (
-            <li key={index}>
-              <p className="role">{chatMessage.role.toUpperCase()}:</p>
-              <p>{chatMessage.content}</p>
-            </li>
-          ))}
-        </ul>
+        <PageFeed currentChat={currentChat} />
 
         <section className="bottom-section">
           <div className="input-container">
