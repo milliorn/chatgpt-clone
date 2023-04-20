@@ -111,7 +111,12 @@ function App(): JSX.Element {
           ))}
         </ul>
         <nav>
-          <p>Created by Scott Milliorn</p>
+          <p>
+            Created by{" "}
+            <a href="https://github.com/milliorn" target="_blank">
+              Scott Milliorn
+            </a>
+          </p>
         </nav>
       </section>
       <section className="main">
@@ -119,7 +124,7 @@ function App(): JSX.Element {
         <ul className="feed">
           {currentChat?.map((chatMessage, index) => (
             <li key={index}>
-              <p className="role">{chatMessage.role}</p>
+              <p className="role">{chatMessage.role.toUpperCase()}:</p>
               <p>{chatMessage.content}</p>
             </li>
           ))}
@@ -132,11 +137,11 @@ function App(): JSX.Element {
               +{" "}
             </div>
           </div>
+          <p className="info">
+            ChatGPT-Clone may produce inaccurate information about people,
+            places, or facts.
+          </p>
         </div>
-        <p className="info">
-          ChatGPT-Clone may produce inaccurate information about people, places,
-          or facts.
-        </p>
       </section>
     </div>
   );

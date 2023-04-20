@@ -5,9 +5,21 @@
   font-family: Open-Sans, sans-serif;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 button {
@@ -16,6 +28,11 @@ button {
   border: solid 2px rgba(255 255 255 / 50%);
   margin: 0.625rem; /* 10px */
   padding: 0.625rem; /* 10px */
+}
+
+button:hover {
+  background-color: black;
+  cursor: pointer;
 }
 
 input {
@@ -29,6 +46,9 @@ input {
   box-shadow: rgba(0 0 0 / 5%) 0 54px 55px, rgba(0 0 0 / 5%) 0 -12px 30px,
     rgba(0 0 0 / 5%) 0 4px 6px, rgba(0 0 0 / 5%) 0 12px 3px,
     rgba(0 0 0 / 5%) 0 -3px 5px;
+  margin: 0 auto; /* add this */
+  display: block; /* add this */
+  text-align: center; /* Add this rule */
 }
 
 input:focus {
@@ -42,7 +62,7 @@ nav {
 }
 
 .app {
-  background-color: #3f3f46;
+  background-color: #27272a;
   display: flex;
 }
 
@@ -54,9 +74,35 @@ nav {
   width: 100%;
 }
 
+.feed {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+.feed li {
+  display: flex;
+  background-color: rgba(255 255 255 / 5%);
+  width: 91.666%;
+  padding: 20px;
+  margin: 20px auto;
+  word-wrap: break-word;
+}
+
+.feed p {
+  font-size: 14px;
+  text-align: left;
+}
+
+.feed p.role {
+  min-width: 100px;
+}
+
 .history li {
   cursor: pointer;
   list-style-type: none;
+  margin: 0.125rem; /* 2px */
   padding: 1rem /* 16px */ 0;
 }
 
@@ -66,17 +112,23 @@ nav {
   padding: 0.625rem; /* 10px */
 }
 
+.history li:hover {
+  color: gray;
+}
+
 .info {
-  color: rgba(255 255 255 / 50%);
+  color: #d4d4d8;
   font-size: 0.75rem; /* 12px */
   line-height: 1rem; /* 16px */
   padding: 0.625rem; /* 10px */
 }
 
 .input-container {
-  max-width: 42rem; /* 672px */
+  margin: 0 auto;
+  max-width: 80rem; /* 1280px */
   position: relative;
-  width: 100%;
+  width: 91.666%;
+  margin-top: auto; /* Add this rule */
 }
 
 .main {
@@ -90,7 +142,7 @@ nav {
 }
 
 .side-bar {
-  background-color: #202123;
+  background-color: #18181b;
   display: flex;
   flex-direction: column;
   height: 100vh;
