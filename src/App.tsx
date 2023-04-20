@@ -120,6 +120,7 @@ function App(): JSX.Element {
           </p>
         </nav>
       </section>
+
       <section className="main">
         {!currentTitle && <h1>ChatGPT-Clone</h1>}
         <ul className="feed">
@@ -131,18 +132,23 @@ function App(): JSX.Element {
           ))}
         </ul>
 
-        <div className="bottom-section">
+        <section className="bottom-section">
           <div className="input-container">
             <input value={value} onChange={(e) => setValue(e.target.value)} />
-            <div id="submit" onClick={getMessage}>
+            <div
+              id="submit"
+              onClick={getMessage}
+              className={`submit-icon ${value ? "" : "disabled"}`}
+            >
               <BsArrowReturnLeft />
             </div>
           </div>
+
           <p className="info">
             ChatGPT-Clone may produce inaccurate information about people,
             places, or facts.
           </p>
-        </div>
+        </section>
       </section>
     </div>
   );
