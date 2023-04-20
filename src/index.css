@@ -84,7 +84,7 @@ nav {
 .feed li {
   display: flex;
   background-color: rgba(255 255 255 / 5%);
-  width: 91.666667%;
+  width: 91.666%;
   padding: 20px;
   margin: 20px auto;
   word-wrap: break-word;
@@ -127,7 +127,7 @@ nav {
   margin: 0 auto;
   max-width: 80rem; /* 1280px */
   position: relative;
-  width: 91.666667%;
+  width: 91.666%;
   margin-top: auto; /* Add this rule */
 }
 
