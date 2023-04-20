@@ -8,7 +8,7 @@ type Props = {
   handleClick: (uniqueTitle: SetStateAction<string>) => void;
 };
 
-export function SideBar(props: Props): JSX.Element {
+export default function SideBar(props: Props): JSX.Element {
   const { createNewChat, uniqueTitles, handleClick } = props;
 
   return (

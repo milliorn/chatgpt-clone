@@ -1,7 +1,7 @@
 import { useState, useEffect, SetStateAction } from "react";
-import { BsArrowReturnLeft } from "react-icons/bs";
-import { SideBar } from "./components/SideBar";
-import { PageFeed } from "./components/PageFeed";
+import PageFeed from "./components/PageFeed";
+import SideBar from "./components/SideBar";
+import BottomSection from "./components/BottomSection";
 
 // Define a type for a chat object
 export interface Chat {
@@ -125,23 +125,11 @@ function App(): JSX.Element {
         {!currentTitle && <h1>ChatGPT-Clone</h1>}
         <PageFeed currentChat={currentChat} />
 
-        <section className="bottom-section">
-          <div className="input-container">
-            <input value={value} onChange={(e) => setValue(e.target.value)} />
-            <div
-              id="submit"
-              onClick={getMessage}
-              className={`submit-icon ${value ? "" : "disabled"}`}
-            >
-              <BsArrowReturnLeft />
-            </div>
-          </div>
-
-          <p className="info">
-            ChatGPT-Clone may produce inaccurate information about people,
-            places, or facts.
-          </p>
-        </section>
+        <BottomSection
+          value={value}
+          setValue={setValue}
+          getMessage={getMessage}
+        />
       </section>
     </div>
   );
