@@ -1,7 +1,7 @@
 import { useState, useEffect, SetStateAction } from "react";
+import BottomSection from "./components/BottomSection";
 import PageFeed from "./components/PageFeed";
 import SideBar from "./components/SideBar";
-import BottomSection from "./components/BottomSection";
 
 // Define a type for a chat object
 export interface Chat {

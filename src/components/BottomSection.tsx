@@ -9,7 +9,7 @@ interface BottomSectionProps {
   ) => Promise<void>;
 }
 
-function BottomSection(props: BottomSectionProps): JSX.Element {
+export default function BottomSection(props: BottomSectionProps): JSX.Element {
   return (
     <section className="bottom-section">
       <div className="input-container">
@@ -23,5 +23,3 @@ function BottomSection(props: BottomSectionProps): JSX.Element {
     </section>
   );
 }
-
-export default BottomSection;
