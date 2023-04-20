@@ -26,7 +26,7 @@ app.post("/completions", async (req, res) => {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "Hello!" }], // Sample input message
+      messages: [{ role: "user", content: req.body.message }], // Sample input message
       max_tokens: 100,
     }),
   };

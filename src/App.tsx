@@ -1,5 +1,21 @@
+import { useState, useEffect } from "react";
+
+interface Chat {
+  title: string;
+  role: string;
+  content: string;
+}
+
 // main app
 function App(): JSX.Element {
+  const [value, setValue] = useState<string>("");
+  const [message, setMessage] = useState<{ role: string; content: string }>({
+    role: "",
+    content: "",
+  });
+  const [previousChats, setPreviousChats] = useState<Chat[]>([]);
+  const [currentTitle, setCurrentTitle] = useState<string>("");
+
   async function getMessage(
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): Promise<void> {
@@ -7,7 +23,7 @@ function App(): JSX.Element {
     const options = {
       method: "POST",
       body: JSON.stringify({
-        message: "How are you?",
+        message: value,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -22,12 +38,40 @@ function App(): JSX.Element {
       );
       // Parse the response data as JSON
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
+      setMessage(data.choices[0].message);
     } catch (error) {
       // Log any errors that occur during the request
       console.error(error);
     }
   }
+
+  //  console.log(value);
+  //  console.log(message);
+
+  useEffect(() => {
+    // console.log(currentTitle, value, message);
+
+    if (!currentTitle && value && message) {
+      setCurrentTitle(value);
+    }
+
+    if (currentTitle && value && message) {
+      setPreviousChats((prevChats) => [
+        ...prevChats,
+        {
+          title: currentTitle,
+          role: "user",
+          content: value,
+        },
+        {
+          title: currentTitle,
+          role: message.role,
+          content: message.content,
+        },
+      ]);
+    }
+  }, [message, currentTitle]);
 
   return (
     <div className="app">
@@ -45,7 +89,7 @@ function App(): JSX.Element {
         <ul className="feed"></ul>
         <div className="bottom-section">
           <div className="input-container">
-            <input type="text" />
+            <input value={value} onChange={(e) => setValue(e.target.value)} />
             <div id="submit" onClick={getMessage}>
               +{" "}
             </div>
