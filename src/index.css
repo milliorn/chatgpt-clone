@@ -5,6 +5,17 @@
   font-family: Open-Sans, sans-serif;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -86,6 +97,7 @@ nav {
 .history li {
   cursor: pointer;
   list-style-type: none;
+  margin: 0.125rem; /* 2px */
   padding: 1rem /* 16px */ 0;
 }
 
