@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 
 interface Chat {
   content: string;
@@ -22,6 +22,12 @@ function App(): JSX.Element {
     setMessage({ role: "", content: "" });
     setValue("");
     setCurrentTitle("");
+  }
+
+  function handleClick(uniqueTitle: SetStateAction<string>): void {
+    setCurrentTitle(uniqueTitle);
+    setMessage({ role: "", content: "" });
+    setValue("");
   }
 
   async function getMessage(
@@ -81,18 +87,28 @@ function App(): JSX.Element {
     }
   }, [message, currentTitle]);
 
-  console.log(previousChats);
+  // console.log(previousChats);
 
   const currentChat = previousChats.filter(
     (previousChat) => previousChat.title === currentTitle
   );
+
+  const uniqueTitles = Array.from(
+    new Set(previousChats.map((previousChat) => previousChat.title))
+  );
+
+  console.log(uniqueTitles);
 
   return (
     <div className="app">
       <section className="side-bar">
         <button onClick={createNewChat}>+ New Chat</button>
         <ul className="history">
-          <li>Lorem</li>
+          {uniqueTitles?.map((uniqueTitle, index) => (
+            <li key={index} onClick={() => handleClick(uniqueTitle)}>
+              {uniqueTitle}
+            </li>
+          ))}
         </ul>
         <nav>
           <p>Created by Scott Milliorn</p>
@@ -100,7 +116,15 @@ function App(): JSX.Element {
       </section>
       <section className="main">
         {!currentTitle && <h1>ChatGPT-Clone</h1>}
-        <ul className="feed">{}</ul>
+        <ul className="feed">
+          {currentChat?.map((chatMessage, index) => (
+            <li key={index}>
+              <p className="role">{chatMessage.role}</p>
+              <p>{chatMessage.content}</p>
+            </li>
+          ))}
+        </ul>
+
         <div className="bottom-section">
           <div className="input-container">
             <input value={value} onChange={(e) => setValue(e.target.value)} />
