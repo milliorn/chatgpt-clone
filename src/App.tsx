@@ -119,7 +119,7 @@ function App(): JSX.Element {
         <ul className="feed">
           {currentChat?.map((chatMessage, index) => (
             <li key={index}>
-              <p className="role">{chatMessage.role}</p>
+              <p className="role">{chatMessage.role.toUpperCase()}:&nbsp;</p>
               <p>{chatMessage.content}</p>
             </li>
           ))}
