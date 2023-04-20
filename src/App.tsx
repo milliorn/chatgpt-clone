@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 
 interface Chat {
-  title: string;
-  role: string;
   content: string;
+  role: string;
+  title: string;
 }
 
 // main app
 function App(): JSX.Element {
-  const [value, setValue] = useState<string>("");
+  const [currentTitle, setCurrentTitle] = useState<string>("");
   const [message, setMessage] = useState<{ role: string; content: string }>({
     role: "",
     content: "",
   });
   const [previousChats, setPreviousChats] = useState<Chat[]>([]);
-  const [currentTitle, setCurrentTitle] = useState<string>("");
+  const [value, setValue] = useState<string>("");
 
   async function getMessage(
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
