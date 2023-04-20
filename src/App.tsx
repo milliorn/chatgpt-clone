@@ -1,4 +1,5 @@
 import { useState, useEffect, SetStateAction } from "react";
+import { BsArrowReturnLeft } from "react-icons/bs";
 
 interface Chat {
   content: string;
@@ -134,7 +135,7 @@ function App(): JSX.Element {
           <div className="input-container">
             <input value={value} onChange={(e) => setValue(e.target.value)} />
             <div id="submit" onClick={getMessage}>
-              +{" "}
+              <BsArrowReturnLeft />
             </div>
           </div>
           <p className="info">
