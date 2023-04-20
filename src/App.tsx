@@ -1,8 +1,20 @@
 import { useState, useEffect } from "react";
+
+interface Chat {
+  title: string;
+  role: string;
+  content: string;
+}
+
 // main app
 function App(): JSX.Element {
   const [value, setValue] = useState<string>("");
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState<{ role: string; content: string }>({
+    role: "",
+    content: "",
+  });
+  const [previousChats, setPreviousChats] = useState<Chat[]>([]);
+  const [currentTitle, setCurrentTitle] = useState<string>("");
 
   async function getMessage(
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -34,8 +46,32 @@ function App(): JSX.Element {
     }
   }
 
-  // console.log(value);
-  // console.log(message);
+  //  console.log(value);
+  //  console.log(message);
+
+  useEffect(() => {
+    // console.log(currentTitle, value, message);
+
+    if (!currentTitle && value && message) {
+      setCurrentTitle(value);
+    }
+
+    if (currentTitle && value && message) {
+      setPreviousChats((prevChats) => [
+        ...prevChats,
+        {
+          title: currentTitle,
+          role: "user",
+          content: value,
+        },
+        {
+          title: currentTitle,
+          role: message.role,
+          content: message.content,
+        },
+      ]);
+    }
+  }, [message, currentTitle]);
 
   return (
     <div className="app">
