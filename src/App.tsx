@@ -1,8 +1,10 @@
 import { useState, useEffect, SetStateAction } from "react";
-import { BsArrowReturnLeft } from "react-icons/bs";
+import BottomSection from "./components/BottomSection";
+import PageFeed from "./components/PageFeed";
+import SideBar from "./components/SideBar";
 
 // Define a type for a chat object
-interface Chat {
+export interface Chat {
   content: string;
   role: string;
   title: string;
@@ -113,53 +115,21 @@ function App(): JSX.Element {
 
   return (
     <div className="app">
-      <section className="side-bar">
-        <button onClick={createNewChat}>+ New Chat</button>
-        <ul className="history">
-          {uniqueTitles?.map((uniqueTitle, index) => (
-            <li key={index} onClick={() => handleClick(uniqueTitle)}>
-              {uniqueTitle}
-            </li>
-          ))}
-        </ul>
-        <nav>
-          <p>
-            Created by{" "}
-            <a href="https://github.com/milliorn" target="_blank">
-              Scott Milliorn
-            </a>
-          </p>
-        </nav>
-      </section>
+      <SideBar
+        createNewChat={createNewChat}
+        uniqueTitles={uniqueTitles}
+        handleClick={handleClick}
+      />
 
       <section className="main">
         {!currentTitle && <h1>ChatGPT-Clone</h1>}
-        <ul className="feed">
-          {currentChat?.map((chatMessage, index) => (
-            <li key={index}>
-              <p className="role">{chatMessage.role.toUpperCase()}:</p>
-              <p>{chatMessage.content}</p>
-            </li>
-          ))}
-        </ul>
+        <PageFeed currentChat={currentChat} />
 
-        <section className="bottom-section">
-          <div className="input-container">
-            <input value={value} onChange={(e) => setValue(e.target.value)} />
-            <div
-              id="submit"
-              onClick={getMessage}
-              className={`submit-icon ${value ? "" : "disabled"}`}
-            >
-              <BsArrowReturnLeft />
-            </div>
-          </div>
-
-          <p className="info">
-            ChatGPT-Clone may produce inaccurate information about people,
-            places, or facts.
-          </p>
-        </section>
+        <BottomSection
+          value={value}
+          setValue={setValue}
+          getMessage={getMessage}
+        />
       </section>
     </div>
   );
