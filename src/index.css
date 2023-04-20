@@ -83,6 +83,7 @@ nav {
 
 .feed li {
   background-color: rgba(255 255 255 / 5%);
+  border-radius: 1rem;
   display: flex;
   margin: 1.25rem auto;
   padding: 1.25rem;
