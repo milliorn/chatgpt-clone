@@ -1,6 +1,7 @@
 import { useState, useEffect, SetStateAction } from "react";
 import { BsArrowReturnLeft } from "react-icons/bs";
 
+// Define a type for a chat object
 interface Chat {
   content: string;
   role: string;
@@ -9,14 +10,19 @@ interface Chat {
 
 // main app
 function App(): JSX.Element {
+  // stores the title of the current chat session
   const [currentTitle, setCurrentTitle] = useState<string>("");
+  // stores the latest message received from the user
   const [message, setMessage] = useState<{ role: string; content: string }>({
     role: "",
     content: "",
   });
+  // previousChats stores the chat history
   const [previousChats, setPreviousChats] = useState<Chat[]>([]);
+  // value stores the text entered by the user in the input field
   const [value, setValue] = useState<string>("");
 
+  // resets the message, value, and currentTitle state variables
   function createNewChat(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
@@ -25,6 +31,8 @@ function App(): JSX.Element {
     setCurrentTitle("");
   }
 
+  // takes in the uniqueTitle of the clicked chat as an argument and updates the currentTitle state,
+  // resets the message, value states to empty strings
   function handleClick(uniqueTitle: SetStateAction<string>): void {
     setCurrentTitle(uniqueTitle);
     setMessage({ role: "", content: "" });
@@ -38,25 +46,24 @@ function App(): JSX.Element {
     const options = {
       method: "POST",
       body: JSON.stringify({
-        message: value,
+        message: value, // message to be sent to the server
       }),
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", // det request content type to JSON
       },
     };
 
     try {
-      // Send the request to the server and wait for the response
+      // send request to the server and wait for response
       const response = await fetch(
-        "http://localhost:8000/completions",
-        options
+        "http://localhost:8000/completions", // The endpoint to send the request to
+        options // The request options to include in the request
       );
       // Parse the response data as JSON
       const data = await response.json();
       // console.log(data);
-      setMessage(data.choices[0].message);
+      setMessage(data.choices[0].message); // update message state with first message choice from server response
     } catch (error) {
-      // Log any errors that occur during the request
       console.error(error);
     }
   }
@@ -71,6 +78,8 @@ function App(): JSX.Element {
       setCurrentTitle(value);
     }
 
+    // create a new chat entry with the user's message and the AI's response
+    // then add new chat entry to the list of previous chats
     if (currentTitle && value && message) {
       setPreviousChats((prevChats) => [
         ...prevChats,
@@ -90,15 +99,17 @@ function App(): JSX.Element {
 
   // console.log(previousChats);
 
+  // currentChat contains all elements from previousChats array that have same title value as currentTitle. filter() loops previousChats and returns only elements that match condition specified in callback. currentChat contains all chat messages related to currently selected title.
   const currentChat = previousChats.filter(
     (previousChat) => previousChat.title === currentTitle
   );
 
+  // populate titles in side bar and remove duplicates
   const uniqueTitles = Array.from(
     new Set(previousChats.map((previousChat) => previousChat.title))
   );
 
-  console.log(uniqueTitles);
+  // console.log(uniqueTitles);
 
   return (
     <div className="app">
