@@ -85,8 +85,10 @@ function App(): JSX.Element {
         </nav>
       </section>
       <section className="main">
-        <h1>ChatGPT-Clone</h1>
-        <ul className="feed"></ul>
+        {!currentTitle && <h1>ChatGPT-Clone</h1>}
+        <ul className="feed">
+          {}
+        </ul>
         <div className="bottom-section">
           <div className="input-container">
             <input value={value} onChange={(e) => setValue(e.target.value)} />
