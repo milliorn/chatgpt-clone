@@ -14,6 +14,7 @@ export default function BottomSection(props: BottomSectionProps): JSX.Element {
     <section className="bottom-section">
       <div className="input-container">
         <input
+          aria-label="input field"
           value={props.value}
           onChange={(e) => props.setValue(e.target.value)}
         />
