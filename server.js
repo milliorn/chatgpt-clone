@@ -44,6 +44,11 @@ app.post("/completions", async (req, res) => {
   }
 });
 
+// Respond with Hello World! on the homepage:
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 // Start the server and listen for incoming requests
 app.listen(PORT, () =>
   console.log(`App is listening on http://localhost:${PORT}`)

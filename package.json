@@ -3,12 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "dev:backend": "nodemon server.js",
+    "dev:frontend": "vite",
+    "dev:full": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "git-update": "git fetch && git pull",
-    "full-stack": "concurrently \"npm run backend\" \"npm run frontend:dev\"",
-    "backend": "nodemon server.js",
-    "frontend:dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "vite:build": "tsc && vite build",
+    "vite:preview": "vite preview",
+    "prod": "vite build && vite preview",
+    "start": "concurrently \"npm run prod\" \"node server.js"
   },
   "dependencies": {
     "concurrently": "^8.0.1",
