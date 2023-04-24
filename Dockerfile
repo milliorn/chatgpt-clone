@@ -7,4 +7,4 @@ COPY . .
 EXPOSE 8000
 RUN chown -R node /usr/src/app
 USER node
-CMD ["npx", "run", "dev:frontend"]
+CMD ["npm", "run", "dev:backend"]
