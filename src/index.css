@@ -115,9 +115,8 @@ nav {
 .history {
   height: 100%;
   margin: 0.625rem;
-  padding: 0.625rem;
   overflow-y: auto;
-
+  padding: 0.625rem;
 }
 
 .history li:hover {
