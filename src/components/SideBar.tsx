@@ -17,7 +17,10 @@ export default function SideBar(props: Props): JSX.Element {
       <button onClick={createNewChat}>+ New Chat</button>
       <ul className="history">
         {uniqueTitles?.map((uniqueTitle, index) => (
-          <li key={index} onClick={() => handleClick(uniqueTitle)}>
+          <li
+            key={`${index}-${uniqueTitle}`}
+            onClick={() => handleClick(uniqueTitle)}
+          >
             {/* List item representing a unique chat */}
             {uniqueTitle}
           </li>
