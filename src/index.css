@@ -305,26 +305,9 @@ nav {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes flash {
-  0% {
-    color: red;
-  }
-  25% {
-    color: blue;
-  }
-  50% {
-    color: green;
-  }
-  75% {
-    color: orange;
-  }
-  100% {
-    color: purple;
   }
 }
 
@@ -335,7 +318,7 @@ nav {
   height: 1em;
   margin-left: 0.5em;
   border-radius: 50%;
-  border: 0.25em solid rgba(0, 0, 0, 0.2);
+  border: 0.25em solid rgba(0 0 0 / 20%);
   border-top-color: #fff;
   animation: flash 1s infinite;
 }
