@@ -26,7 +26,11 @@ export default function SideBar(props: Props): JSX.Element {
       <nav>
         <p>
           Created by{" "}
-          <a href="https://github.com/milliorn" target="_blank">
+          <a
+            href="https://github.com/milliorn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Scott Milliorn
           </a>
         </p>
