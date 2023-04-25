@@ -311,7 +311,7 @@ nav {
   }
 }
 
-.spinner:after {
+.spinner::after {
   content: "";
   display: inline-block;
   width: 1em;
