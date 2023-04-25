@@ -1,4 +1,4 @@
-import { Chat } from "../App";
+import { Chat } from "../Chat";
 
 interface PageFeedProps {
   currentChat: Chat[];
