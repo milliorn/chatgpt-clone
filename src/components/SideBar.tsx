@@ -8,6 +8,7 @@ type Props = {
   handleClick: (uniqueTitle: SetStateAction<string>) => void;
 };
 
+// global sidebar
 export default function SideBar(props: Props): JSX.Element {
   const { createNewChat, uniqueTitles, handleClick } = props;
 
@@ -17,6 +18,7 @@ export default function SideBar(props: Props): JSX.Element {
       <ul className="history">
         {uniqueTitles?.map((uniqueTitle, index) => (
           <li key={index} onClick={() => handleClick(uniqueTitle)}>
+            {/* List item representing a unique chat */}
             {uniqueTitle}
           </li>
         ))}
