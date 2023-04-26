@@ -9,17 +9,25 @@ interface BottomSectionProps {
   ) => Promise<void>;
 }
 
+// represents the bottom section of the page.
 export default function BottomSection(props: BottomSectionProps): JSX.Element {
   return (
     <section className="bottom-section">
       <div className="input-container">
+        {/* allows the user to enter text. */}
         <input
-          aria-label="input field"
+          aria-label="Enter message"
           value={props.value}
           onChange={(e) => props.setValue(e.target.value)}
         />
-        <InputButton getMessage={props.getMessage} value={props.value} />
+        {/* triggers the message sending functionality. */}
+        <InputButton
+          aria-label="Send message"
+          getMessage={props.getMessage}
+          value={props.value}
+        />
       </div>
+      {/* displays additional information about the page. */}
       <Info />
     </section>
   );
