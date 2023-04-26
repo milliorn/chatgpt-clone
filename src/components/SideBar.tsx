@@ -13,7 +13,7 @@ type Props = {
 
 // global sidebar
 export default function SideBar(props: Props): JSX.Element {
-  const { createNewChat, uniqueTitles, handleClick, handleClickCallback } =
+  const { createNewChat, uniqueTitles, handleClickCallback } =
     props;
 
   return (
