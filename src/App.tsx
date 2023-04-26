@@ -19,7 +19,7 @@ function App(): JSX.Element {
   const [value, setValue] = useState<string>("");
 
   // resets the message, value, and currentTitle state variables
-  function createNewChat(event: React.MouseEvent<HTMLButtonElement>): void {
+  function createNewChat(): void {
     setMessage({ role: "", content: "" });
     setValue("");
     setCurrentTitle("");
@@ -33,9 +33,7 @@ function App(): JSX.Element {
     setValue("");
   }
 
-  async function getMessage(
-    event: React.MouseEvent<HTMLDivElement>
-  ): Promise<void> {
+  async function getMessage(): Promise<void> {
     // Define the request options
     const options = {
       method: "POST",

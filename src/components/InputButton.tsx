@@ -27,6 +27,7 @@ export default function InputButton(props: InputButtonProps): JSX.Element {
     <div
       id="submit"
       role="button"
+      tabIndex={0}
       onClick={handleClick}
       className={`submit-icon ${value ? "" : "disabled"}`}
     >
