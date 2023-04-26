@@ -29,6 +29,7 @@ export default function InputButton(props: InputButtonProps): JSX.Element {
       role="button"
       tabIndex={0}
       onClick={handleClick}
+      aria-label="Click to send prompt"
       className={`submit-icon ${value ? "" : "disabled"}`}
     >
       {/* when the button is not loading. */}
