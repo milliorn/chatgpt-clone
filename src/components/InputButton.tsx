@@ -9,10 +9,12 @@ interface InputButtonProps {
   value: string;
 }
 
+// used for sending messages.
 export default function InputButton(props: InputButtonProps): JSX.Element {
   const { getMessage, value } = props;
   const [isLoading, setIsLoading] = useState(false);
 
+  // triggers message sending functionality.
   const handleClick = async (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -24,10 +26,17 @@ export default function InputButton(props: InputButtonProps): JSX.Element {
   return (
     <div
       id="submit"
+      role="button"
+      tabIndex={0}
       onClick={handleClick}
+      aria-label="Click to send prompt"
       className={`submit-icon ${value ? "" : "disabled"}`}
     >
-      {isLoading ? <FaSpinner className="spinner" /> : <BsArrowReturnLeft />}
+      {/* when the button is not loading. */}
+      {!isLoading ? <BsArrowReturnLeft /> : null}
+
+      {/* when the button is loading. */}
+      {isLoading ? <FaSpinner className="spinner" /> : null}
     </div>
   );
 }

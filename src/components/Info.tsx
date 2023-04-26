@@ -1,3 +1,4 @@
+// displays additional information about the page.
 export default function Info(): JSX.Element {
   return (
     <p className="info">

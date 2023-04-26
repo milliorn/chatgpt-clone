@@ -1,9 +1,13 @@
-import { Chat } from "../App";
+import { Chat } from "../Chat";
 
 interface PageFeedProps {
   currentChat: Chat[];
 }
 
+/**
+ * Represents the list of messages displayed in the chat feed.
+ * @param {Object} currentChat - An array of Chat objects representing the current chat history.
+ */
 export default function PageFeed({ currentChat }: PageFeedProps): JSX.Element {
   return (
     <ul className="feed">
