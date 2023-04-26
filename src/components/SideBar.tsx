@@ -1,4 +1,4 @@
-import { SetStateAction, useCallback } from "react";
+import { SetStateAction } from "react";
 
 type Props = {
   createNewChat: (
@@ -6,25 +6,22 @@ type Props = {
   ) => void;
   uniqueTitles: string[];
   handleClick: (uniqueTitle: SetStateAction<string>) => void;
+  handleClickCallback: (
+    event: React.MouseEvent<HTMLLIElement, MouseEvent>
+  ) => void;
 };
 
 // global sidebar
 export default function SideBar(props: Props): JSX.Element {
-  const { createNewChat, uniqueTitles, handleClick } = props;
-
-  const handleClickCallback = useCallback(
-    (uniqueTitle: string) => {
-      handleClick(uniqueTitle);
-    },
-    [handleClick]
-  );
+  const { createNewChat, uniqueTitles, handleClick, handleClickCallback } =
+    props;
 
   return (
     <section className="side-bar">
       <button onClick={createNewChat}>+ New Chat</button>
       <ul className="history">
         {uniqueTitles?.map((uniqueTitle, index) => (
-          <li key={index} onClick={() => handleClickCallback(uniqueTitle)}>
+          <li key={index} onClick={handleClickCallback}>
             {/* List item representing a unique chat */}
             {uniqueTitle}
           </li>
