@@ -13,8 +13,7 @@ type Props = {
 
 // global sidebar
 export default function SideBar(props: Props): JSX.Element {
-  const { createNewChat, uniqueTitles, handleClickCallback } =
-    props;
+  const { createNewChat, uniqueTitles, handleClickCallback } = props;
 
   return (
     <section className="side-bar">
