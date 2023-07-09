@@ -43,7 +43,12 @@ Set up your OpenAI API credentials by creating a .env file in the project's root
 
 Start the chatbot server:
 ```bash
-  npm start
+  npm run dev:backend
+```
+
+Start the frontend development server:
+```bash
+  npm run dev:frontend
 ```
 
 Access the chatbot in your web browser at http://localhost:3000
