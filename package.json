@@ -12,7 +12,7 @@
     "vite:prod": "vite build && vite preview"
   },
   "dependencies": {
-    "concurrently": "^8.2.1",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
