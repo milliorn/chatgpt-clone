@@ -22,9 +22,9 @@
     "react-icons": "^4.11.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.33",
+    "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.13",
-    "@vitejs/plugin-react": "^4.1.0",
+    "@vitejs/plugin-react": "^4.1.1",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
   }
