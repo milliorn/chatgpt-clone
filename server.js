@@ -1,6 +1,6 @@
-const cors = require("cors");
-const dotenv = require("dotenv");
-const express = require("express");
+import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
 
 // Load environment variables
 dotenv.config();
@@ -26,7 +26,7 @@ app.post("/completions", async (req, res) => {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: req.body.message }], // Sample input message
+      messages: [ { role: "user", content: req.body.message } ], // Sample input message
       max_tokens: 100,
     }),
   };
