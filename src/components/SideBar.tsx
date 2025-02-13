@@ -6,7 +6,7 @@ type Props = {
   ) => void;
   uniqueTitles: string[];
   handleClick: (uniqueTitle: SetStateAction<string>) => void;
-  handleClickCallback: (
+  handleClickCallback?: (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>
   ) => void;
 };

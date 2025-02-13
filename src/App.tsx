@@ -111,6 +111,9 @@ function App(): JSX.Element {
         handleClick={handleClick}
         handleClickCallback={(event) => {
           // Define what should happen when a list item is clicked
+          if (event.currentTarget.textContent) {
+            handleClick(event.currentTarget.textContent);
+          }
         }}
       />
 
