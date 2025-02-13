@@ -109,6 +109,9 @@ function App(): JSX.Element {
         createNewChat={createNewChat}
         uniqueTitles={uniqueTitles}
         handleClick={handleClick}
+        handleClickCallback={(event) => {
+          // Define what should happen when a list item is clicked
+        }}
       />
 
       <section className="main">
