@@ -26,6 +26,6 @@
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.9",
     "typescript": "^5.8.2",
-    "vite": "^5.4.14"
+    "vite": "^6.2.0"
   }
 }
