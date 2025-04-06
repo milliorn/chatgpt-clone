@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 // displays additional information about the page.
 export default function Info(): JSX.Element {
   return (

@@ -1,4 +1,4 @@
-import { useState, useEffect, SetStateAction } from "react";
+import { useState, useEffect, SetStateAction, JSX } from "react";
 import BottomSection from "./components/BottomSection";
 import PageFeed from "./components/PageFeed";
 import SideBar from "./components/SideBar";

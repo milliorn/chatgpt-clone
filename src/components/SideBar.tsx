@@ -1,4 +1,4 @@
-import { SetStateAction } from "react";
+import { JSX, SetStateAction } from "react";
 
 type Props = {
   createNewChat: (

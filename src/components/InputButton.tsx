@@ -1,6 +1,6 @@
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { FaSpinner } from "react-icons/fa";
-import { useState } from "react";
+import { JSX, useState } from "react";
 
 interface InputButtonProps {
   getMessage: (
