@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
+/* Global Styles */
 * {
   color: white;
   font-family: Open-Sans, sans-serif;
@@ -26,10 +27,11 @@ body {
   padding: 0;
 }
 
+/* Button Styles */
 button {
   background-color: transparent;
   border-radius: 0.375rem;
-  border: solid 2px rgba(255 255 255 / 50%);
+  border: solid 2px rgba(255, 255, 255, 0.5);
   margin: 1rem 0.625rem 0.625rem;
   padding: 0.625rem;
 }
@@ -39,8 +41,9 @@ button:hover {
   cursor: pointer;
 }
 
+/* Input Styles (with minimum height for touch targets) */
 input {
-  background-color: rgba(255 255 255 / 5%);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 0.375rem;
   border: none;
   display: block;
@@ -50,20 +53,23 @@ input {
   padding: 0.75rem 1rem;
   text-align: center;
   width: 100%;
-  box-shadow: rgba(0 0 0 / 5%) 0 54px 55px, rgba(0 0 0 / 5%) 0 -12px 30px,
-    rgba(0 0 0 / 5%) 0 4px 6px, rgba;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 54px 55px, rgba(0, 0, 0, 0.05) 0 -12px 30px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px;
+  min-height: 44px;
 }
 
 input:focus {
   outline: none;
 }
 
+/* Navigation Styles */
 nav {
-  border-top: solid 2px rgba(255 255 255 / 50%);
+  border-top: solid 2px rgba(255, 255, 255, 0.5);
   margin: 0.625rem;
   padding: 0.625rem;
 }
 
+/* Layout Styles */
 .app {
   background-color: #27272a;
   display: flex;
@@ -85,7 +91,7 @@ nav {
 }
 
 .feed li {
-  background-color: rgba(255 255 255 / 5%);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 1rem;
   display: flex;
   margin: 1.25rem auto;
@@ -162,20 +168,43 @@ nav {
   pointer-events: none;
 }
 
-#submit {
-  bottom: 1rem;
-  cursor: pointer;
+/* Submit Button Wrapper */
+.submit-wrapper {
   position: absolute;
   right: 0;
+  bottom: 1rem;
+}
+
+/* Updated Submit Button for Sufficient Touch Target */
+#submit {
+  position: relative; /* Allow pseudo-element positioning */
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Expand the clickable area without affecting visual layout */
+#submit::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  background: transparent;
+  pointer-events: auto;
 }
 
 #submit:hover {
-  border: solid 2px rgba(255 255 255 / 50%);
+  border: solid 2px rgba(255, 255, 255, 0.5);
 }
 
-/* ----------- iPhone 4 and 4S ----------- */
+/* Media Queries for Various Devices */
 
-/* Portrait and Landscape */
+/* iPhone 4 and 4S - Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   button {
     font-size: 0.75rem; /* 12px */
@@ -193,6 +222,7 @@ nav {
     line-height: 1rem; /* 16px */
     padding: 0.75rem 1rem;
     text-align: left;
+    min-height: 44px;
   }
 
   nav {
@@ -225,8 +255,9 @@ nav {
     width: 75%;
   }
 
+  /* Adjust #submit bottom positioning if needed */
   #submit {
-    bottom: 0.5rem; /* 8px */
+    bottom: 0.5rem;
   }
 }
 
@@ -235,7 +266,7 @@ nav {
   /* Landscape */
   @media only screen and (orientation: landscape) {
     #submit {
-      bottom: 1rem; /* 8px */
+      bottom: 1rem;
     }
   }
 }
@@ -245,7 +276,7 @@ nav {
   /* Landscape */
   @media only screen and (orientation: landscape) {
     #submit {
-      bottom: 1rem; /* 8px */
+      bottom: 1rem;
     }
   }
 }
@@ -255,17 +286,17 @@ nav {
   /* Landscape */
   @media only screen and (min-device-width: 414px) and (orientation: landscape) {
     #submit {
-      bottom: 1rem; /* 8px */
+      bottom: 1rem;
     }
   }
 }
 
-/* iPhone 4 */
+/* iPhone 4 Landscape */
 @media only screen and (max-device-width: 480px) {
   /* Landscape */
   @media only screen and (min-device-width: 480px) and (orientation: landscape) {
     #submit {
-      bottom: 0.5rem; /* 8px */
+      bottom: 0.5rem;
     }
   }
 }
@@ -275,14 +306,14 @@ nav {
   /* Portrait */
   @media only screen and (min-device-width: 768px) and (orientation: portrait) {
     #submit {
-      bottom: 0.8rem; /* 8px */
+      bottom: 0.8rem;
     }
   }
 
   /* Landscape */
   @media only screen and (min-device-width: 820px) and (orientation: landscape) {
     #submit {
-      bottom: 0.8rem; /* 8px */
+      bottom: 0.8rem;
     }
   }
 }
@@ -292,12 +323,12 @@ nav {
   /* Landscape */
   @media only screen and (orientation: landscape) {
     #submit {
-      bottom: 0.8rem; /* 8px */
+      bottom: 0.8rem;
     }
   }
 }
 
-/* spinner code */
+/* Spinner Styles */
 .spinner {
   animation: spin 1s linear infinite;
 }
@@ -306,7 +337,6 @@ nav {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -319,7 +349,7 @@ nav {
   height: 1em;
   margin-left: 0.5em;
   border-radius: 50%;
-  border: 0.25em solid rgba(0 0 0 / 20%);
+  border: 0.25em solid rgba(0, 0, 0, 0.2);
   border-top-color: #fff;
   animation: flash 1s infinite;
 }

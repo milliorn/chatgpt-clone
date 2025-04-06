@@ -24,19 +24,18 @@ export default function InputButton(props: InputButtonProps): JSX.Element {
   };
 
   return (
-    <div
-      id="submit"
-      role="button"
-      tabIndex={0}
-      onClick={handleClick}
-      aria-label="Click to send prompt"
-      className={`submit-icon ${value ? "" : "disabled"}`}
-    >
-      {/* when the button is not loading. */}
-      {!isLoading ? <BsArrowReturnLeft /> : null}
-
-      {/* when the button is loading. */}
-      {isLoading ? <FaSpinner className="spinner" /> : null}
+    <div className="submit-wrapper">
+      <div
+        id="submit"
+        role="button"
+        tabIndex={0}
+        onClick={handleClick}
+        aria-label="Click to send prompt"
+        className={`submit-icon ${value ? "" : "disabled"}`}
+      >
+        {!isLoading ? <BsArrowReturnLeft /> : null}
+        {isLoading ? <FaSpinner className="spinner" /> : null}
+      </div>
     </div>
   );
 }
