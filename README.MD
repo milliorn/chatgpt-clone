@@ -10,6 +10,10 @@
 
 This repository contains a ChatGPT clone project that allows you to run an AI-powered chatbot locally. The project is built on the GPT-3.5 architecture, providing a simple and customizable implementation for developing conversational AI applications.
 
+## Preview
+
+![Lighthouse Score](./public/lighthouse_score.png)
+
 ## Features
 
 - AI-powered chatbot powered by OpenAI's GPT-3.5 model.
@@ -22,36 +26,24 @@ This repository contains a ChatGPT clone project that allows you to run an AI-po
 To get started with the ChatGPT clone, follow these steps:
 
 1. Clone the repository:
-
-```bash
-  git clone https://github.com/milliorn/chatgpt-clone.git
-```
+   git clone <https://github.com/milliorn/chatgpt-clone.git>
 
 2. Install the dependencies:
-
-```bash
-  cd chatgpt-clone
-  npm install
-```
+   cd chatgpt-clone
+   npm install
 
 ## Usage
 
-Set up your OpenAI API credentials by creating a .env file in the project's root directory and adding your API key:
-```bash
-  OPENAI_API_KEY=<your-api-key>
-```
+Set up your OpenAI API credentials by creating a `.env` file in the project's root directory and adding your API key:
+   OPENAI_API_KEY=<your_key_goes_here>
 
-Start the chatbot server:
-```bash
-  npm run dev:backend
-```
+1. Start the chatbot server:
+   npm run dev:backend
 
-Start the frontend development server:
-```bash
-  npm run dev:frontend
-```
+2. Start the frontend development server:
+   npm run dev:frontend
 
-Access the chatbot in your web browser at http://localhost:3000
+Access the chatbot in your web browser at [http://localhost:3000](http://localhost:3000)
 
 ## Configuration
 
